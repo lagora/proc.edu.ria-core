@@ -1,0 +1,25 @@
+{
+  "name": "proceduria-core-0",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "react-scripts": "1.1.4",
+    "spark-md5": "^3.0.0",
+    "uuid": "^3.2.1"
+  },
+  "scripts": {
+    "install": "npm run build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "main": "./src/core.js",
+  "devDependencies": {
+    "aframe": "^0.8.2",
+    "aframe-orbit-controls-component-2": "^0.1.14",
+    "jest": "^22.4.3",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  }
+}
