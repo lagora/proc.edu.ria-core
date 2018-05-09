@@ -2,25 +2,23 @@ export const adjustYfromHeight = scale => data =>
     ({ ...data, y: ( data.height === 0 ? scale : data.height) / 2 });
 
 export const height = {
-    1000: scale => hex => ({ height: parseInt(hex, 16) * scale }),
-    1: scale => hex => {
+    1000: ({ length, scale }) => ({ hex, i }) => {
         const int = parseInt(hex, 16);
         let height = int;
-        // if (int > 0 && int < 5) {
-        //     height = height / 3;
-        // }
-        // if (int >= 5 && int < 12) {
-        //     height = height / 2;
-        // }
-        // if ([0, 15].includes(int)) {
-        //     height /= 3;
-        // }
-        if (int < 15) {
-            height /= 2;
-        }
-        // const height = int > 9 ? int / 2 : int;
+        let max = i === 0 ? 0 : Math.ceil(i / length);
+        max = max === 0 ? 1 : max;
+        height = (height / max) / ( i === 0 ? 1.25 : 2);
         return ({ height: height * scale });
     },
+    100: ({ length, scale }) => ({ hex, i }) => {
+        const int = parseInt(hex, 16);
+        let height = int;
+        let max = i === 0 ? 0 : Math.ceil(i / length);
+        max = max === 0 ? 1 : max;
+        height = (height / max) / ( i === 0 ? 1.25 : 2);
+        return ({ height: height * scale });
+    },
+    1: ({ scale }) => ({ hex }) => ({ height: parseInt(hex, 16) * scale }),
 };
 
 export default { adjustYfromHeight, height };
