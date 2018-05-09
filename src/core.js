@@ -17,13 +17,13 @@ export const scales = [
 
 export const methods = { grid, path };
 
-export const map = ({ hash, method }) => scale => length => {
-    const adjustedHash = method === 'grid' ? hash : utils.cycleHashUntilMaxFirst(hash)();
-    return methods[method](scale)(length)
+export const map = ({ hash }) => scale => length => {
+    const adjustedHash = utils.cycleHashUntilMaxFirst(hash)();
+    return methods.path(scale)(length)
         .map(a => ({ ...a, hex: utils.getHexAt(adjustedHash)(a.i) }) )
         .map(a => elevation.adjustYfromHeight(scale)(({
             ...a,
-            ...elevation.height[scale](scale)(a.hex)
+            ...elevation.height[scale]({ length, scale })(a)
         })) );
 }
 
