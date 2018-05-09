@@ -15,10 +15,9 @@ export const Box = props => (
 class App extends Component {
   render() {
     const hash = core.init();
-    const method = 'path';
     return (
       <a-scene background="#000">
-        {core.map({ hash, method })(1)(16).map(data => <Box {...data} />)}
+        {core.map({ hash })(1)(16).map(data => <Box key={JSON.stringify(data)} {...data} />)}
         <a-entity id="target" />
         <a-entity
           id="camera"
@@ -28,7 +27,7 @@ class App extends Component {
               autoRotate: true;
               target: #target;
               enableDamping: true;
-              dampingFactor: 0.5;
+              dampingFactor: 1;
               rotateSpeed:0.125;
               minDistance:3;
               maxDistance:100;
