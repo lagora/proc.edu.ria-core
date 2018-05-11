@@ -3,6 +3,7 @@ import elevation from './elevation';
 import spiral from './spiral';
 import grid from './grid';
 import utils from './utils';
+import meta from './meta';
 import { hash } from 'spark-md5';
 // import { v4 } from 'uuid';
 
@@ -25,11 +26,7 @@ export const map = ({ hash }) => scale => length => {
         .map(a => elevation.adjustYfromHeight(scale)(({
             ...a,
             ...elevation.height[scale]({ length, scale })(a),
-            meta: {
-                type: 'volume',
-                scale,
-                lod: 0,
-            }
+            meta: meta({ ...a, hash, length, scale }),
         })) );
 };
 
