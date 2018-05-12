@@ -10,6 +10,7 @@
     "webpack": "^4.8.3"
   },
   "scripts": {
+    "install": "npm run build",
     "build": "webpack -p"
   },
   "main": "./dist/core.js",
