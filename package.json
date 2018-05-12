@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "babel-esnext": "^0.2.3",
+    "babel-loader": "^7.1.4",
     "babel-preset-stage-0": "^6.24.1",
     "spark-md5": "^3.0.0",
     "uuid": "^3.2.1",
@@ -18,7 +19,6 @@
   "devDependencies": {
     "aframe": "^0.8.2",
     "aframe-orbit-controls-component-2": "^0.1.14",
-    "babel-loader": "^7.1.4",
     "jest": "^22.4.3",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
