@@ -1,1 +1,1 @@
-module.exports = require('./dist/core.js');
+module.exports = require('./src/core.js');
