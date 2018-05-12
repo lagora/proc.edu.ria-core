@@ -4,7 +4,9 @@ module.exports = {
     entry: './src/core.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'core.js'
+        filename: 'core.js',
+        library: 'library',
+        libraryTarget: 'umd',
     },
     module: {
         rules: [
@@ -14,4 +16,5 @@ module.exports = {
             },
         ],
     },
+    target: 'node'
 };
