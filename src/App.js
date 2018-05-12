@@ -16,8 +16,6 @@ export const Box = props => props.height === 0 ? false : (
     <a-box
       {...props}
       position={core.utils.xyzToString(props)}
-      width={props.scale * 0.9}
-      depth={props.scale * 0.9}
       scale={1}
       material={`color: ${props.meta.sector ? colorMapping[props.meta.sector.type] : '#fff'}`}
     />
@@ -49,8 +47,7 @@ class App extends Component {
     const hash = core.init();
     const scale = 1000;
     const data = core.map({ hash })(scale)(32);
-    const demoLine = utils.pathFromPosition(data);
-    // console.info('...', 'demoLine', demoLine);
+    const demoLine = [];// utils.pathFromPosition(data);
     this.state = {
       camera: true,
       data,
