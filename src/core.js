@@ -8,7 +8,7 @@ import { hash } from 'spark-md5';
 // import { v4 } from 'uuid';
 
 // export const init = () => hash(v4());
-export const init = () => hash('proceduria');
+export const init = (seed = 'proceduria') => hash(seed);
 
 export const scales = [
     1000,
